@@ -6,6 +6,9 @@
     <string name="Team2_Points">0</string>
     <string name="increment">+</string>
     <string name="decrement">-</string>
+    <string name="message_share_button">Share by sending a message</string>
+    <string name="call_share_button">Share by calling a friend</string>
+    <string name="map_share_button">Search on Maps for the Nearest Arena</string>
     <string name="Winner_Line">team 1 name Won by x points</string>
 
 </resources>
