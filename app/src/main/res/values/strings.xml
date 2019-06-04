@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Score Counter-MP2</string>
+    <string name="Team_1">team 1 name</string>
+    <string name="Team_2">team 2 name</string>
+    <string name="Team1_Points">0</string>
+    <string name="Team2_Points">0</string>
+    <string name="increment">+</string>
+    <string name="decrement">-</string>
+    <string name="Winner_Line">team 1 name Won by x points</string>
+
+</resources>
