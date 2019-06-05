@@ -24,7 +24,7 @@
             android:id="@+id/team1name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/Team_2"
+            android:text="@string/Team_1"
             android:textAlignment="center"
             android:textColor="#1A237E"
             android:textSize="20sp"
@@ -105,7 +105,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="@string/Team_1"
+        android:text="@string/Team_2"
         android:textColor="#FFEB3B"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent" />

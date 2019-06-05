@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar spinner;
     private int t1Count = 0;
     private int t2Count = 0;
+    private TextView team1Name;
+    private TextView team2Name;
     private TextView team1Score;
     private TextView team2Score;
     public static final String WINNER_MESSAGE =
@@ -24,8 +26,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         spinner = findViewById(R.id.progressBar1);
         spinner.setVisibility(View.GONE);
+        team1Name = findViewById(R.id.team1name);
         team1Score = findViewById(R.id.team1score);
+        team2Name = findViewById(R.id.team2name);
         team2Score = findViewById(R.id.textView2);
+
+        if (savedInstanceState != null) {
+            boolean isVisible =
+                    savedInstanceState.getBoolean("score_visible");
+            // Show both the header and the message views. If isVisible is
+            // false or missing from the bundle, use the default layout.
+            if (isVisible) {
+                team1Score.setVisibility(View.VISIBLE);
+                team1Score.setText(savedInstanceState
+                        .getString("score_text1"));
+                team2Score.setVisibility(View.VISIBLE);
+                team2Score.setText(savedInstanceState
+                        .getString("score_text2"));
+                t1Count = savedInstanceState.getInt("score_count1");
+                t2Count = savedInstanceState.getInt("score_count2");
+            }
+        }
     }
 
     public void team1Up(View view)
@@ -80,6 +101,19 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra(WINNER_MESSAGE, message);
             startActivity(intent);
             spinner.setVisibility(View.GONE);
+        }
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (team1Score.getVisibility() == View.VISIBLE) {
+            outState.putBoolean("score_visible", true);
+            outState.putInt("score_count1", t1Count);
+            outState.putString("score_text1",
+                    team1Score.getText().toString());
+            outState.putInt("score_count2", t2Count);
+            outState.putString("score_text2",
+                    team2Score.getText().toString());
         }
     }
 }
