@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.content.Intent;
+import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ProgressBar spinner;
     private int t1Count = 0;
     private int t2Count = 0;
     private TextView team1Score;
@@ -20,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        spinner = findViewById(R.id.progressBar1);
+        spinner.setVisibility(View.GONE);
         team1Score = findViewById(R.id.team1score);
         team2Score = findViewById(R.id.textView2);
     }
@@ -53,24 +56,30 @@ public class MainActivity extends AppCompatActivity {
         checkScore();
     }
 
-    public void checkScore(){
+    public void checkScore()
+    {
 
         Intent intent = new Intent(this, WinnerActivity.class);
 
         if(t1Count == 5)
         {
+            spinner.setVisibility(View.VISIBLE);
             int difference = t1Count-t2Count;
             String message = ("Team 1 won by " + difference + " points");
             intent.putExtra(WINNER_MESSAGE, message);
+
             startActivity(intent);
+            spinner.setVisibility(View.GONE);
         }
 
         if(t2Count == 5)
         {
+            spinner.setVisibility(View.VISIBLE);
             int difference = t2Count-t1Count;
             String message = ("Team 2 won by " + difference + " points");
             intent.putExtra(WINNER_MESSAGE, message);
             startActivity(intent);
+            spinner.setVisibility(View.GONE);
         }
     }
 }

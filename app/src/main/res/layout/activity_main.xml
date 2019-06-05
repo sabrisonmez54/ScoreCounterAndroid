@@ -11,23 +11,23 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:background="#FFEB3B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:context=".MainActivity"
-        android:layout_weight="1">
+        tools:context=".MainActivity">
 
         <TextView
             android:id="@+id/team1name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="#1A237E"
             android:text="@string/Team_2"
             android:textAlignment="center"
+            android:textColor="#1A237E"
+            android:textSize="20sp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -36,22 +36,22 @@
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="50dp"
+            android:onClick="team1Up"
             android:text="@string/increment"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/team1name"
-            android:onClick="team1Up"/>
+            app:layout_constraintTop_toBottomOf="@+id/team1name" />
 
         <Button
             android:id="@+id/buttonDown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
+            android:onClick="team1Down"
             android:text="@string/decrement"
             app:layout_constraintBottom_toBottomOf="@+id/buttonUp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/team1name"
-            app:layout_constraintVertical_bias="1.0"
-            android:onClick="team1Down"/>
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/team1score"
@@ -66,6 +66,18 @@
             app:layout_constraintEnd_toStartOf="@+id/buttonDown"
             app:layout_constraintStart_toEndOf="@+id/buttonUp"
             app:layout_constraintTop_toBottomOf="@+id/team1name" />
+
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/team1score" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -122,6 +134,8 @@
         android:onClick="team2Down"/>
 
       </android.support.constraint.ConstraintLayout>
+
+
 
 </LinearLayout>
 

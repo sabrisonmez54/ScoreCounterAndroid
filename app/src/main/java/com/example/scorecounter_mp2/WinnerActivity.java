@@ -26,7 +26,6 @@ public class WinnerActivity extends AppCompatActivity {
 
     public void sendMessageBtnClicked(View view)
     {
-
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, winnerText.getText());
@@ -34,16 +33,14 @@ public class WinnerActivity extends AppCompatActivity {
         startActivity(sendIntent);
 
     }
+
     public void callBtnClicked(View view)
     {
-
         Uri uri = Uri.parse("tel:8005551234");
         Intent it = new Intent(Intent.ACTION_DIAL, uri);
         startActivity(it);
-
-
-
     }
+
     public void mapsBtnClicked(View view)
     {
         Uri gmmIntentUri = Uri.parse("geo:0,0?q=arenas");
